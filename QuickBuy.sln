@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Repositorio", "QuickBuy.Repositorio\QuickBuy.Repositorio.csproj", "{C0959D2E-EFAC-46B0-A316-8FEA53F12528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Dominio", "QuickBuy.Dominio\QuickBuy.Dominio.csproj", "{09A68453-5D1E-4C1C-8B11-ED1A8050F657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBuy.Web", "QuickBuy.Web\QuickBuy.Web.csproj", "{BD013BF7-9AF8-4903-AD48-34814999EA66}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0959D2E-EFAC-46B0-A316-8FEA53F12528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0959D2E-EFAC-46B0-A316-8FEA53F12528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0959D2E-EFAC-46B0-A316-8FEA53F12528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0959D2E-EFAC-46B0-A316-8FEA53F12528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A68453-5D1E-4C1C-8B11-ED1A8050F657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A68453-5D1E-4C1C-8B11-ED1A8050F657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A68453-5D1E-4C1C-8B11-ED1A8050F657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A68453-5D1E-4C1C-8B11-ED1A8050F657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD013BF7-9AF8-4903-AD48-34814999EA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD013BF7-9AF8-4903-AD48-34814999EA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD013BF7-9AF8-4903-AD48-34814999EA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD013BF7-9AF8-4903-AD48-34814999EA66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
