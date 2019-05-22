@@ -1,0 +1,48 @@
+Solução -> 
+	Dominio -> 
+		Interface -> 
+			+ Toda interface inicia com a letra I (por padrão)
+			+ Toda interface deve/pode conter IBaseRepositorio que controla os métodos genéricos/base da interface
+			+ IBaseRepositorio deve conter (IDisposable where TEntity : class)
+			+ Na IBaseRepositorio pode/deve (geralmente contem) conter: Adicionar(), ObterPorId(), ObterTodos() , Atualizar() e Remover();
+			+ Em cada IRepositorio, deve ser referenciado o IBaseRepositorio<Aqui deve ser passada a class>
+			+ Criar as Interfaces das classes que terão alguma alteração e dentro de cada uma, criar o método específico de cada class.
+
+		Entidades ->
+			+ Criar Classes - Dentro de cada class, deve conter suas propriedas (prop tab tab)
+			+ Para vincular uma class com a outra (ICollection<ClasseASerVinculada>)
+			+ Entidades necessárias no projeto
+			+ Pode conter enums
+	Repositório ->
+		- Manage NuGet Package - Instalar Pomelo EntityFrameWorkCore e Proxies
+		- Criar pastas
+		Config ->
+			+ Criar as configuration de todas as Entidades que serão persistidas no banco
+			+ Mapear as propriedades da classe (builder.HasKey())
+
+		Contexto ->
+			+ Criar Class com nome do projeto (por padrão) + context (contexto)
+			+ Reescrever a chamada do OnModelCreating e adicionar dentro dela todas as configurations das entidades.
+
+		Repositórios ->
+			+ Criar JSON, com chave: "ConnectionStrings" com valor de outro objeto e dentro dele a chave "NomeDoBancoBD": "informações de conexão ("server=localhost;uid=root;pwd=admin;database=QuickBuyDB")"
+			+ Criar pasta 'Repositórios'
+			+ Criar class base para o repositório (BaseRepositorio<TEntity (por padrão)> : IBaseRepositorio<TEntity> where TEntity : class)(referenciar repo)
+			+ Criar cada repositório referente a cada class a ser alterada.
+			+ Dentro de cada repositório referenciar BaseRepositorio<Class a ser tratada como TEntity> e passar a interface a ser usada.
+
+	Web -> 
+	+ Criar arquivo config.json vazio.
+		Startup ->
+			+ Deve ser criado com Dbset todas as classes que serão persistidas no banco de dados.
+			+ ctrl + ponto - Procurar pelo nome class(dbContextOptions options)
+			+ QuickBuy.Web, em Startup, procurar por: Configuration, acima dele inserir o builder (builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
+			+ Em Configuration, alterar configuration para builder.Build();
+			+ Em ConfigureServices iniciar uma var chamada: connectionString = Configuration.GetConnectionString("MySqlConnection"), onde o 'MySqlConnection' deve conter o nome do Banco a ser criado (por padrão, nome aplicação + DB);
+			+ Ainda em ConfigureServices: services.AddDbContext<QuickBuyContexto>(option => option.UseMySql(connectionString, m => m.MigrationsAssembly('Nome do repositorio (exatamente igual)'))
+
+
+-----------------------------------
+	Entity Framework Core -> 
+		- Ferramenta de ORM.
+		- Code First (Código Primeiro)
